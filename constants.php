@@ -1,3 +1,3 @@
 <?php
 
-const BASE_URL = "https://data.augustresto.ee/wp-json/augustresto/v1";
+const BASE_URL = "https://admin.augustresto.ee/wp-json/augustresto/v1";

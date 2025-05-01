@@ -1,0 +1,24 @@
+name: Deploy PHP Site
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          
+      - name: Add server to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H augustresto.ee >> ~/.ssh/known_hosts
+
+      - name: Deploy to production server
+        run: |
+          ssh virt137707@augustresto.ee 'cd /data02/virt137707/domeenid/www.augustresto.ee/htdocs && git pull'
