@@ -18,4 +18,4 @@ jobs:
 
       - name: Deploy to production server
         run: |
-          ssh -i ~/.ssh/id_ed25519 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} 'cd ${{ secrets.DEPLOY_PATH }} && git pull'
+          ssh -i ~/.ssh/id_ed25519 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} cd ${{ secrets.DEPLOY_PATH }} && git pull
