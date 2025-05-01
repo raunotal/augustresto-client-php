@@ -1,341 +1,206 @@
 * {
-    box-sizing: border-box;
-}
-
-html {
-    background: url("../image/August-Resto.jpg") no-repeat center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "Baskerville", Georgia, "Times New Roman", Times, sans-serif;
-    line-height: 1.3em;
-    color: #570b0d;
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
+  font-family: "Inter", Georgia, "Times New Roman", Times, sans-serif;
+  line-height: 1.3em;
+  color: #3d1a55;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  background-color: #eb9873;
 }
 
 header {
-    text-align: center;
+  text-align: center;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 a {
-    text-decoration: none;
-    color: #570b0d;
+  text-decoration: none;
+  color: #3d1a55;
 }
 
 footer {
-    margin: 30px 0 0;
-    padding-top: 20px;
-    border-top: 2px dotted #2f1e00;
-    text-align: center;
+  margin: 3rem 0 0;
+  padding-top: 20px;
+  color: #3d1a55;
+  text-align: center;
+  font-size: 12px;
 }
 
 footer ul {
-    margin: 10px;
+  margin: 10px;
 }
 
 li {
-    display: inline;
-    margin: 0 10px;
+  display: inline;
+  margin: 0 10px;
 }
 
 h1 {
-    font-size: 2.25em;
-    line-height: 1.2;
-    margin: 40px;
-    font-weight: normal;
-    text-transform: none;
-    text-align: center;
+  font-size: 2em;
+  line-height: 1.2;
+  margin: 40px;
+  font-weight: normal;
+  text-transform: none;
+  text-align: center;
 }
 
 h2 {
-    margin: 0;
+  margin: 0;
 }
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
 }
 
 .language li {
-    font-size: 13px;
+  font-size: 13px;
 }
 
 .logo {
-    display: inline-block;
-    margin: 50px 0 30px;
-    overflow: hidden;
-    position: relative;
+  display: inline-block;
+  margin: 50px 0 30px;
+  overflow: hidden;
+  position: relative;
 }
 
 .logo img {
-    height: 100px;
-    width: auto;
+  height: 100px;
+  width: auto;
 }
 
 .menu {
-    padding: 0 0 20px;
-    border-bottom: 2px dotted #2f1e00;
-    text-align: center;
-    font-size: 14px;
+  padding: 0 0 20px;
+  text-align: center;
+  font-size: 14px;
 }
 
 .menu li {
-    white-space: nowrap;
-    text-transform: uppercase;
+  white-space: nowrap;
+  text-transform: uppercase;
 }
 
 .wrapper {
-    max-width: 850px;
-    margin: 30px auto;
-    background: rgba(249,231,213,0.95);
-    padding: 30px 0;
+  max-width: 850px;
+  margin: 30px auto;
+  background: #eb9873;
+  padding: 30px 0;
 }
 
 .order a {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .order-table {
-    border-collapse: separate;
-    border-spacing: 10px 0;
+  border-collapse: separate;
+  border-spacing: 10px 0;
 }
 
 .content {
-    padding: 0 40px;
+  padding: 0 40px;
 }
 
 .date {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .news-content {
-    white-space: pre-line;
+  white-space: pre-line;
 }
 
 td > h3 {
-    margin: 0;
+  font-weight: 500;
+  margin: 0;
+}
+
+.food h1 {
+  margin: 5rem 0;
 }
 
 .food table {
-    width: 100%;
+  width: 100%;
 }
 
 .food-item {
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .food-description td {
-    font-size: 14px;
-    padding-right: 50px;
+  font-size: 14px;
+  padding-right: 50px;
 }
 
 .food-price {
-    text-align: right;
-    font-weight: bold;
-    white-space: nowrap;
-    vertical-align: baseline;
+  text-align: right;
+  font-weight: bold;
+  white-space: nowrap;
+  vertical-align: baseline;
 }
 
-form {
-    margin-top: 0;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-}
-
-label {
-    display: flex;
-    margin-bottom: .5rem;
-}
-
-input {
+@media only screen and (max-width: 800px) {
+  body {
+    background: none;
+    font-size: 14px;
     margin: 0;
-    display: flex;
-    overflow: visible;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1 {
+    font-size: 1.8em;
+    line-height: 1.2;
+    margin: 40px;
+  }
+
+  .wrapper {
+    margin: 0;
+    padding: 10px 0;
+  }
+
+  .language li {
+    margin: 0 0 15px 0;
+    white-space: nowrap;
+    width: 50%;
+    display: block;
+    float: left;
+  }
+
+  .menu li {
+    font-size: 1em;
+    margin-bottom: 20px;
+    display: list-item;
+    width: 100%;
+  }
+
+  header,
+  nav,
+  .content,
+  .footer {
+    padding: 0 10px;
+  }
+
+  .food h1 {
+    margin: 2rem 0;
+  }
+
+  .food-price {
+    white-space: normal;
+    min-width: 60px;
+  }
+
+  footer ul li {
+    display: list-item;
+    margin: 0 10px 15px;
+  }
+
+  .menu {
+    padding-right: 20px;
+  }
 }
-
-.form-group {
-    margin: 1rem auto;
-    flex-direction: column;
-    display: flex;
-}
-
-.admin-form {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    border-bottom: 2px dotted #2f1e00;
-    padding-bottom: 20px;
-}
-
-.admin-form .form-group {
-    margin: 0 10px;
-}
-
-.items {
-    padding: 40px 20px;
-}
-
-#menu-table th, #menu-table td {
-    margin-top: .25rem;
-    margin-bottom: .25rem;
-    padding: 8px;
-    text-align: left;
-}
-
-.form-control {
-    margin: 0 auto;
-    display: flex;
-    height: calc(1.5em + .75rem + 2px);
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-
-.form-check {
-    display: flex;
-}
-
-.check-group {
-    margin: 0 auto;
-    flex-direction: row !important;
-}
-
-input[type='checkbox'] {
-    margin-right: 5px;
-}
-
-.btn {
-    margin: 0 auto;
-    cursor: pointer;
-    display: flex;
-    font-weight: 400;
-    color: #212529;
-    text-align: center;
-    vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-color: transparent;
-    border: 1px solid transparent;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: .25rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-
-.btn-primary {
-    color: #fff !important;
-    background-color: #2f1e00 !important;
-    border-color: #2f1e00 !important;
-}
-
-#form-modify {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding-bottom: 20px;
-}
-
-.form-control.modify-input-text {
-    margin: 5px 10px;
-}
-
-.form-control.modify-textarea {
-    overflow: auto;
-    height: 200px;
-}
-
-#change-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.modify-buttons {
-    margin: 20px auto;
-}
-
-.btn.btn-primary.btn-modify {
-    display: inline;
-    margin: 5px 10px;
-}
-
-@media only screen and (max-width:800px) {
-
-    body {
-        background: none;
-        font-size: 14px;
-        margin: 0;
-        -webkit-font-smoothing: antialiased;
-    }
-
-    h1 {
-        font-size: 1.8em;
-        line-height: 1.2;
-        margin: 40px;
-    }
-
-    .wrapper {
-        margin: 0;
-        padding: 10px 0;
-    }
-
-    .language li {
-        margin: 0 0 15px 0;
-        white-space: nowrap;
-        width: 50%;
-        display: block;
-        float: left;
-    }
-
-    .menu li {
-        font-size: 1em;
-        margin-bottom: 20px;
-        display: list-item;
-        width: 100%;
-    }
-
-    header, nav, .content, .footer {
-        padding: 0 10px;
-    }
-
-    .content .food-description td {
-        font-size: 14px;
-    }
-
-    .food-price {
-        white-space: normal;
-        min-width: 60px;
-    }
-
-    footer ul li {
-        display: list-item;
-        margin: 0 10px 15px;
-    }
-
-    .menu {
-        padding-right: 20px;
-    }
-
-}
-

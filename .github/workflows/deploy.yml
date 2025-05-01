@@ -19,10 +19,6 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.HOST_SERVER_IP }} >> ~/.ssh/known_hosts
-      - name: Debug SSH variables
-        run: |
-          echo "User: ${{ secrets.SSH_USER }}"
-          echo "Host: ${{ secrets.HOST_SERVER_IP }}"
 
       - name: Debug SSH connection
         run: |
