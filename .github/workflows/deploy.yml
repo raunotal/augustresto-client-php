@@ -1,38 +1,23 @@
-name: Deploy PHP Site
-
+name: Deploy to Zone
 on:
   push:
-    branches: [main]
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: "Log level"
-        required: true
-        default: "warning"
-        type: choice
-        options:
-          - info
-          - warning
-          - debug
-      tags:
-        description: "Test scenario tags"
-        required: false
-        type: boolean
-      environment:
-        description: "Environment to run tests against"
-        type: environment
-        required: false
-
+    branches:
+      - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://augustresto.ee
     steps:
-      - name: Deploy to Production Server
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd ${{ secrets.DEPLOY_PATH }}
-            git pull origin main
+      - name: Checkout to main
+        uses: actions/checkout@main
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.HOST_SERVER_IP }} >> ~/.ssh/known_hosts
+      - name: Pull main branch on server
+        run: |
+          ssh ${{ secrets.SSH_LOGIN_CREDS }} "${{secrets.DEPLOY_PATH}} && git pull origin main"
