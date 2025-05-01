@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="{{ $lng }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <title>{{ $headingForTitle }}August Resto</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161591402-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-161591402-1");
+    </script>
+  </head>
+  <body>
+    <section class="wrapper">
+      <header>
+        <ul class="language">
+          <li tpl-foreach="$languages as $language">
+            <a href="/{{ $language['short'] }}">{{ $language['long'] }}</a>
+          </li>
+        </ul>
+        <a class="logo" href="/{{ $lng }}"><img src="../image/August-Resto-logo.png" alt="August Resto logo" /></a>
+      </header>
+      <nav tpl-include="{{ $navigation }}"></nav>
+      <div class="content" tpl-include="{{ $template }}"></div>
+      <footer>
+        <a href="https://www.pria.ee/toetused/maaelu-arendamine">
+          <img src="/image/leader.png" alt="Leader Eesti" />
+        </a>
+        <p>Tapa Pitsakohviku laiendus Covid-19-st tulenevate piirangute tingimuste täitmiseks.</p>
+        <p>Lihamenüü laiendamine ja kvaliteedi parandamine Tapa Pitsakohvikus.</p>
+        <ul>
+          <li><a href="tel:+37257570779">+372 57 570 779</a></li>
+          <li><a href="mailto:info@augustresto.ee">info@augustresto.ee</a></li>
+        </ul>
+        <ul>
+          <li>OÜ Heamaitse</li>
+          <li>reg nr 12974428</li>
+          <li>Tapa, Sauna 1</li>
+        </ul>
+      </footer>
+    </section>
+  </body>
+</html>

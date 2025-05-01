@@ -1,0 +1,22 @@
+<div class="food">
+    <h1>{{ $headline}}</h1>
+    <table>
+        <tbody>
+        <tr tpl-foreach="$menu as $menuItem">
+            <td class="food-item">
+                <table>
+                    <tbody>
+                        <tr class="food-name">
+                            <td><h3>{{ urldecode($menuItem->name) }}</h3></td>
+                        </tr>
+                        <tr class="food-description">
+                            <td>{{ urldecode($menuItem->description) }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td class="food-price">{{ urldecode($menuItem->price) }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
