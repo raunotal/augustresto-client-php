@@ -14,8 +14,21 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+          echo "Host ${{ secrets.SSH_HOST }}" > ~/.ssh/config
+          echo "  HostName ${{ secrets.SSH_HOST }}" >> ~/.ssh/config
+          echo "  User ${{ secrets.SSH_USER }}" >> ~/.ssh/config
+          echo "  IdentityFile ~/.ssh/id_ed25519" >> ~/.ssh/config
+          echo "  IdentitiesOnly yes" >> ~/.ssh/config
+          echo "  StrictHostKeyChecking no" >> ~/.ssh/config
+          
+      - name: Add server to known_hosts
+        run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Debug SSH connection
+        run: |
+          echo "Testing SSH connection with verbose output:"
+          ssh -vvv ${{ secrets.SSH_HOST }} 'echo SSH connection successful'
 
       - name: Deploy to production server
-        run: |
-          ssh -i ~/.ssh/id_ed25519 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} cd ${{ secrets.DEPLOY_PATH }} && git pull
+        if: always()
+        run: ssh ${{ secrets.SSH_HOST }} 'cd ${{ secrets.DEPLOY_PATH }} && git pull'
