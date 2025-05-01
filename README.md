@@ -193,6 +193,8 @@ The project uses PM2 for deployment, configured in `ecosystem.config.js`. To dep
 pm2 deploy production
 ```
 
+Test deployment - May 1, 2025
+
 The deployment configuration targets a specific host and deploys from the GitHub repository.
 
 ## License
