@@ -16,17 +16,17 @@ $lng = $request->param('lng')
   : '';
 
 // Comment out when going live
-// $pattern = '/(\w+)\/(\D+)$/';
-// preg_match($pattern, $uri, $matches);
-// if ($matches) {
-//    $lng = $matches[1];
-//    $cmd = $matches[2];
-// } else {
-//    preg_match('/(\w+)/', $uri, $lngMatch);
-//    if ($lngMatch) {
-//        $lng = $lngMatch[1];
-//    }
-// }
+$pattern = '/(\w+)\/(\D+)$/';
+preg_match($pattern, $uri, $matches);
+if ($matches) {
+   $lng = $matches[1];
+   $cmd = $matches[2];
+} else {
+   preg_match('/(\w+)/', $uri, $lngMatch);
+   if ($lngMatch) {
+       $lng = $lngMatch[1];
+   }
+}
 
 $data = array(
   'lng' => $lng,
