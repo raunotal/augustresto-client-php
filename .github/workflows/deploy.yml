@@ -21,15 +21,15 @@ jobs:
           ssh-keyscan -H ${{ secrets.HOST_SERVER_IP }} >> ~/.ssh/known_hosts
       - name: Debug SSH variables
         run: |
-          echo "User: ${{ secrets.SSH_USERNAME }}"
+          echo "User: ${{ secrets.SSH_USER }}"
           echo "Host: ${{ secrets.HOST_SERVER_IP }}"
 
       - name: Debug SSH connection
         run: |
           # Add verbose output for debugging
-          ssh -v -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${{ secrets.SSH_USERNAME }}@${{ secrets.HOST_SERVER_IP }} "echo Connection test"
+          ssh -v -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.HOST_SERVER_IP }} "echo Connection test"
 
       - name: Copy files to server
         if: success()
         run: |
-          rsync -avz --delete --exclude=".git*" --exclude="node_modules" ./ ${{ secrets.SSH_USERNAME }}@${{ secrets.HOST_SERVER_IP }}:${{ secrets.DEPLOY_PATH }}
+          rsync -avz --delete --exclude=".git*" --exclude="node_modules" ./ ${{ secrets.SSH_USER }}@${{ secrets.HOST_SERVER_IP }}:${{ secrets.DEPLOY_PATH }}
