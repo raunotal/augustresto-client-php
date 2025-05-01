@@ -18,6 +18,10 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.HOST_SERVER_IP }} >> ~/.ssh/known_hosts
+          echo "Host ${{ secrets.HOST_SERVER_IP }}" > ~/.ssh/config
+          echo "  IdentityFile ~/.ssh/id_rsa" >> ~/.ssh/config
+          echo "  StrictHostKeyChecking yes" >> ~/.ssh/config
+          chmod 600 ~/.ssh/config
       - name: Pull main branch on server
         run: |
-          ssh ${{ secrets.SSH_LOGIN_CREDS }} "${{secrets.DEPLOY_PATH}} && git pull origin main"
+          ssh ${{ secrets.SSH_LOGIN_CREDS }} "cd ${{secrets.DEPLOY_PATH}} && git pull origin main"
