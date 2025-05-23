@@ -31,6 +31,10 @@
           </li>
         </ul>
         <a class="logo" href="/{{ $lng }}"><img src="../image/August-Resto-logo.png" alt="August Resto logo" /></a>
+        <div class="order-button-container">
+          <a href="https://august-rest.choiceqr.com/" class="order-button" tpl-if="$lng == 'et'" target="_blank">Telli siit</a>
+          <a href="https://august-rest.choiceqr.com/en" class="order-button" tpl-if="$lng == 'en'" target="_blank">Order now</a>
+        </div>
       </header>
       <nav tpl-include="{{ $navigation }}"></nav>
       <div class="content" tpl-include="{{ $template }}"></div>
