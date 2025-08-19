@@ -32,7 +32,18 @@ $data = array(
   'lng' => $lng,
   'languages' => getLanguages(),
   'menuCategories' => getMenuCategories($lng),
-  'navigation' => "navigation.html"
+  'navigation' => "navigation.html",
+  'cssVersion' => (function () {
+    $path = __DIR__ . '/css/styles.css';
+    if (file_exists($path)) {
+      $hash = @md5_file($path);
+      if ($hash !== false) {
+        return substr($hash, 0, 10);
+      }
+      return filemtime($path);
+    }
+    return time();
+  })()
 );
 
 $languageShortnames = array_map(function ($l) {
