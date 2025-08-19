@@ -31,9 +31,41 @@
           </li>
         </ul>
         <a class="logo" href="/{{ $lng }}"><img src="../image/August-Resto-logo.png" alt="August Resto logo" /></a>
-        <div class="order-button-container">
-          <a href="https://august-rest.choiceqr.com/et" class="order-button" tpl-if="$lng == 'et'" target="_blank">Telli siit</a>
-          <a href="https://august-rest.choiceqr.com/en" class="order-button" tpl-if="$lng == 'en'" target="_blank">Order now</a>
+        <div class="cta-button-container">
+          <a
+            href="https://august-rest.choiceqr.com/{{ $lng }}"
+            class="order-button"
+            tpl-if="$lng == 'et'"
+            target="_blank"
+          >
+            Telli siit
+          </a>
+          <a
+            href="https://august-rest.choiceqr.com/{{ $lng }}"
+            class="order-button"
+            tpl-if="$lng == 'en'"
+            target="_blank"
+          >
+            Order now
+          </a>
+        </div>
+        <div class="cta-button-container">
+          <a
+            href="https://august-rest.choiceqr.com/{{ $lng }}/booking"
+            class="order-button"
+            tpl-if="$lng == 'et'"
+            target="_blank"
+          >
+            Broneeri laud
+          </a>
+          <a
+            href="https://august-rest.choiceqr.com/{{ $lng }}/booking"
+            class="order-button"
+            tpl-if="$lng == 'en'"
+            target="_blank"
+          >
+            Reservation
+          </a>
         </div>
       </header>
       <nav tpl-include="{{ $navigation }}"></nav>
