@@ -73,7 +73,6 @@ function getResponseResult($endpoint)
     $client = curl_init("$baseUrl/$endpoint");
     curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
     $response = curl_exec($client);
-    curl_close($client);
 
     if ($response === false) {
         return null;
